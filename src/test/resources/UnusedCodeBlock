@@ -1,0 +1,136 @@
+
+//        char[] chars = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+//        StringBuilder sb = new StringBuilder(20);
+//        Random random = new Random();
+//        for (int i = 0; i < 20; i++) {
+//            char c = chars[random.nextInt(chars.length)];
+//            sb.append(c);
+//        }
+//        String output = sb.toString();
+//        System.out.println(output);
+
+//
+//   @Test
+
+//  public void createUser() throws JsonProcessingException, ParseException {
+//    String someRandomString = String.format("%1$TH%1$TM%1$TS", new Date());
+//
+//    JsonData requestJsonData = new JsonData();
+//    requestJsonData.setId(8);
+//    requestJsonData.setEmail(someRandomString + "@reqres.in");
+//    requestJsonData.setFirstName(someRandomString);
+//    requestJsonData.setLastName(someRandomString);
+//    requestJsonData.setAvatar("https://s3.amazonaws.com/uifaces/faces/twitter/bigmancho/" + someRandomString + ".jpg");
+//    ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter(); //перевод объекта в строку
+//    String json = ow.writeValueAsString(requestJsonData);
+//
+//
+//        RequestSpecification request = RestAssured.given();
+//        request.header("Content-Type", "application/json");
+//        request.body(json);
+//        Response response = request.post("https://reqres.in/api/users");
+//        int statusCode = response.statusCode();
+//        Assert.assertEquals(201,statusCode);
+//        String date = response.getHeader("Date");
+//        System.out.println(date);
+//
+//
+
+
+
+//    }
+
+//  @Test
+//  public void correctCreateUserTest() throws JsonProcessingException, ParseException {
+
+String query1 = "SELECT * FROM challange.akravchenko";
+
+
+        logger.info("Registering JDBC driver...");
+        Class.forName(JDBC_DRIVER);
+        logger.info("Creating connection to database...");
+        rs = statement.executeQuery(query1);
+        while (rs.next()){
+          int respId = rs.getInt(1);
+          dbData.setId(respId);
+          String respName = rs.getString(2);
+          dbData.setName(respName);
+          String
+
+        }
+
+                sessionFactory = new Configuration().configure().buildSessionFactory();
+                Session session = sessionFactory.openSession();
+                Transaction transaction = null;
+                transaction = session.beginTransaction();
+                List users = session.createQuery("FROM Akravchenko a").list();
+                logger.info("dbData=============",users);
+                session.close();
+
+        //
+        //        Query query = session.createQuery("select a.id from akravchenko a ");
+        //        List list = query.list();
+        //        logger.info("list================ \n{}",list);
+        //        session.close();
+
+SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
+        Date date1 = StringToDate("1992-12-06");
+
+        logger.info("222============ {}", date1);
+        user1.setBirthdate(date1);
+
+
+
+         public Date StringToDate(String s){
+                Date result = null;
+                try{
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    result  = dateFormat.parse(s);
+                }
+
+                catch(ParseException e){
+                    e.printStackTrace();
+
+                }
+                return result ;
+            }
+
+
+
+
+
+
+
+
+
+
+ public Date calendar(int y, int m, int d){
+        Date bDateFirst = new GregorianCalendar(y, m, d).getTime();
+        return bDateFirst;
+    }
+
+
+    @Test
+    public User enrichmentInsertQuery() throws ParseException {
+
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-YYYY");
+        User user1 = new User();         // Создаём <i>transient-object</i>
+        user1.setName("Havoc");
+        user1.setSurname("Petrov");
+        user1.setAge(25);
+        user1.setBirthdate(dateFormat.format(calendar(1995,11,21)));
+    return user1;
+
+
+
+    }
+
+
+
+public static Boolean assertUsers(){
+        User userFirst = selectUsers().get(0);
+        User userSecond = selectUsers().get(1);
+        Boolean result = userFirst.equals(userSecond);
+        return result;
+    }
